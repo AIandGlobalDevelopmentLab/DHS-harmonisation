@@ -22,8 +22,8 @@ install_bitbucket(repo = "hansekbrand/DHSharmonisation") #Make sure not to updat
 # And it does not depend on rgdal or rgeos packages:
 remove.packages("globallivingconditions")
 install_bitbucket(repo = "hansekbrand/DHSharmonisation",
-                  #ref = "fewer_dependencies")
-                  ref = "fewer_dependencies_custom_project_ids")
+                  #ref = "fewer_dependencies") 
+                  ref = "fewer_dependencies_custom_project_ids") #Use this branch for now, until it is merged onto fewer_dependencies (then use the fewer_dependencies branch) -- see the PR https://bitbucket.org/hansekbrand/dhsharmonisation/pull-requests/3
 
 #Custom: load forked version of DHSharmonisation package: -- THIS IS DEPRECIATED
 remove.packages("globallivingconditions")
