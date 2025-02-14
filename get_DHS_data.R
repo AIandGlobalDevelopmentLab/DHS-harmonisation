@@ -1,6 +1,11 @@
 
+install_bitbucket(repo = "hansekbrand/iwi")
+
+################################################################################
 # hansekbrand/DHSharmonisation requires rgdal and rgeos packages, which have been
-# depreciated. Install old versions
+# depreciated. 
+
+# One option: Install old versions
 # rgdal and rgeos require an old version of sf package
 # See https://github.com/AIandGlobalDevelopmentLab/FrontPage/issues/125#issuecomment-2659902123
 # You may need to install geos and gdal on your machine first, before installing these
@@ -9,13 +14,22 @@ remove.packages(c("sp", "rgdal", "rgeos"))
 remotes::install_version("sp", version = "1.6-1")
 remotes::install_version("rgeos", version = "0.6-4") #Make sure not to update sp package when prompted
 remotes::install_version("rgdal", version = "1.6-7") #Make sure not to update sp package when prompted
-
-install_bitbucket(repo = "hansekbrand/iwi")
 install_bitbucket(repo = "hansekbrand/DHSharmonisation") #Make sure not to update sp package when prompted
 
-#Custom: load forked version of DHSharmonisation package:
+
+# Second option: Install from the branch fewer_dependencies
+# As of Feb 2025, this is the most up-to-date branch
+# And it does not depend on rgdal or rgeos packages:
+remove.packages("globallivingconditions")
+install_bitbucket(repo = "hansekbrand/DHSharmonisation",
+                  #ref = "fewer_dependencies")
+                  ref = "fewer_dependencies_custom_project_ids")
+
+#Custom: load forked version of DHSharmonisation package: -- THIS IS DEPRECIATED
 remove.packages("globallivingconditions")
 install_bitbucket(repo = "jameshbailiebb/dhsharmonisationcustomprojectid")
+
+################################################################################
 
 library(globallivingconditions)
 library(iwi)
@@ -25,8 +39,6 @@ library(iwi)
 # getDHSDataQuick()
 
 #Full run:
-setwd(repo_file_path) #reset wd in case of errors -- UPDATE: I no longer use wd since this is brittle
-
 dt <- getDHSData(dhs.user = username,
                  dhs.password = pass,
                  log.filename = "living-conditions.log",
