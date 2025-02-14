@@ -25,8 +25,6 @@ library(iwi)
 # getDHSDataQuick()
 
 #Full run:
-living_conditions_file_path <- file.path(downloaded_DHS_data_file_path, "global-living-conditions")
-
 setwd(repo_file_path) #reset wd in case of errors -- UPDATE: I no longer use wd since this is brittle
 
 dt <- getDHSData(dhs.user = username,

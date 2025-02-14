@@ -3,7 +3,7 @@
 #downloaded_DHS_data_file_path is set in auth.R
 dir.create(file.path(downloaded_DHS_data_file_path, "qog"), showWarnings = FALSE)
 qog_file_path <- paste(normalizePath(file.path(downloaded_DHS_data_file_path, "qog")), 
-                       "qog_std_ts_jan22.sav", 
+                       "qog_std_cs_jan25.sav", 
                        sep = "/") #Need to do something weird with filepath to avoid error in download.and.harmonize
 
 #UPDATE THIS IF YOU WANT TO RE-DOWNLOAD DATA:
