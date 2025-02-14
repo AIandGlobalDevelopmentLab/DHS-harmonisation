@@ -12,7 +12,7 @@ This code is basically just a wrapper function for Hans's package [`globalliving
 
 #### Step 1: 
 
-Make a new file (in the same folder as this README) `auth.R` which declares three variables:
+Make a new file (in the same folder as this README) `auth.R` which declares five variables:
 1. `username` - the username of your DHS account
 1. `pass` - your DHS password
 1. `downloaded_DHS_data_file_path` - where you want your DHS raw data to be stored. `downloaded_DHS_data_file_path` is passed as the argument `directory` to the `download.and.harmonise` function.
@@ -32,6 +32,8 @@ And which sets your working directory to the folder `repo_file_path`. (Update: u
 
 
 #### Step 2: 
+Run the R script `auth.R`
+
 Run the R script `set-up.R`. (You only need to do this once.) This downloads the QoG dataset and saves it in the appropriate folder.
 
 #### Step 3

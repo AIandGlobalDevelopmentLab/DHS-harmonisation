@@ -24,6 +24,8 @@ get_DHS_data.R
 #Bootstrapping:
 #Then run "bootstrap.R" manually
 bootstrap.R
+#(This isn't related to downloading the DHS data. Rather, it creates
+#bootstrap samples of the DHS data.)
 
 #Then need to recalculate IWI on each bootstrap sample
 
