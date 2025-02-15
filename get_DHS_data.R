@@ -39,23 +39,26 @@ library(iwi)
 # getDHSDataQuick()
 
 #Full run:
-dt <- getDHSData(dhs.user = username,
-                 dhs.password = pass,
-                 log.filename = "living-conditions.log",
-                 cacheFolderPath = NULL,
-                 harmonised.DHS.data.file.path = harmonised_DHS_data_file_path,
-                 vars.to.keep = vars_to_keep,
-                 variable.packages = variable_packages,
-                 superclusters = FALSE,
-                 living.conditions.file.path = living_conditions_file_path,
-                 qog.file.path = qog_file_path,
-                 updateSurveyInfoVars = FALSE,
-                 countries = NULL,
-                 waves = NULL,
-                 project.id = "168008") #Specify a DHS project ID to pass to download.and.harmonise (optional) 
+l <- getDHSData(dhs.user = username,
+                dhs.password = pass,
+                log.filename = "living-conditions.log",
+                cacheFolderPath = NULL,
+                harmonised.DHS.data.file.path = harmonised_DHS_data_file_path,
+                vars.to.keep = vars_to_keep,
+                variable.packages = variable_packages,
+                superclusters = FALSE,
+                living.conditions.file.path = living_conditions_file_path,
+                qog.file.path = qog_file_path,
+                updateSurveyInfoVars = FALSE,
+                countries = NULL,
+                waves = NULL,
+                project.id = "168008") #Specify a DHS project ID to pass to download.and.harmonise (optional) 
+
+final_output_data_file_path <- l$dt_file_path
+final_output_data <- dt <-l$dt
 
 ######################
-#Testing:
+#Testing/OLD:
 setwd(repo_file_path) #reset wd in case of errors
 getDHSData(countries = "Senegal", check.dhs.for.more.data = F,
            cacheFolderPath = here("cache_220619_092818"),

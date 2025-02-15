@@ -127,11 +127,11 @@ getDHSData <- function(dhs.user = username,
                                    countries = countries,
                                    waves = waves,
                                    ...)
-      paste0("DHS_harmonised_data", 
-             getSaveTime(), 
-             ".RDS") %>%
-        file.path(cacheFolderPath, .) %>%
-        saveRDS(dt, file = .)
+      dt_file_path <- paste0("DHS_harmonised_data", 
+                             getSaveTime(), 
+                             ".RDS") %>%
+        file.path(cacheFolderPath, .) 
+      saveRDS(dt, dt_file_path)
     },
     error = function(e) {
       errorFile <- file.path(cacheFolderPath,
@@ -148,5 +148,5 @@ getDHSData <- function(dhs.user = username,
   #Go back to working directory:
   setwd(curWD)
   
-  return(dt)
+  return(list(dt = dt, dt_file_path = dt_file_path))
 }
