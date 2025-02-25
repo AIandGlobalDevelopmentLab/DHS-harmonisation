@@ -1,6 +1,6 @@
 debugSource(file.path(dirname(rstudioapi::getSourceEditorContext()$path), 
                       "auth.R"))
-#debugSource("set-up.R") -- only run this once
+#debugSource("set-up.R") #-- only run this once
 
 library("devtools")
 library("tidyverse")

@@ -1,7 +1,10 @@
 
 install_bitbucket(repo = "hansekbrand/iwi")
+install_bitbucket(repo = "hansekbrand/DHSharmonisation")
 
 ################################################################################
+# AS OF 25 Feb 2025 THE FOLLOWING CODE IS NOT RELEVANT:
+#     (because the fewer_dependencies branch of hansekbrand/DHSharmonisation has been merged into main)
 # hansekbrand/DHSharmonisation requires rgdal and rgeos packages, which have been
 # depreciated. 
 
@@ -18,7 +21,7 @@ install_bitbucket(repo = "hansekbrand/DHSharmonisation") #Make sure not to updat
 
 
 # Second option: Install from the branch fewer_dependencies
-# As of Feb 2025, this is the most up-to-date branch
+# As of 14 Feb 2025, this is the most up-to-date branch
 # And it does not depend on rgdal or rgeos packages:
 remove.packages("globallivingconditions")
 install_bitbucket(repo = "hansekbrand/DHSharmonisation",
@@ -49,7 +52,7 @@ l <- getDHSData(dhs.user = username,
                 superclusters = FALSE,
                 living.conditions.file.path = living_conditions_file_path,
                 qog.file.path = qog_file_path,
-                updateSurveyInfoVars = FALSE,
+                updateSurveyInfoVars = TRUE,
                 countries = NULL,
                 waves = NULL,
                 project.id = "168008") #Specify a DHS project ID to pass to download.and.harmonise (optional) 
