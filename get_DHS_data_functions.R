@@ -62,6 +62,7 @@ getDHSData <- function(dhs.user = username,
                        updateSurveyInfoVars = TRUE,
                        countries = NULL,
                        waves = NULL,
+                       project.id = NULL,
                        ...) {
   #Documentation:
   #If cacheFolderPath is NULL then a new folder will be created in harmonised.DHS.data.file.path.
@@ -112,6 +113,23 @@ getDHSData <- function(dhs.user = username,
     stop("Survey_info csv not stored in globallivingconditions package.")
   }
   
+  if ("survey_info" %in% variable.packages) {
+    surveyInfoDF <- read.csv(surveyInfoPackagePath, header = T)
+    
+    #Check that survey_info csv is formatted correctly:
+    if (!identical(colnames(surveyInfoDF), c("New.variable.name", "type", "dhs.variable.name", "special.recodes.car"))) {
+      stop("Survey_info csv not formatted with correct column names")
+    }
+    
+    #Check that the survey_info vars to keep are included in the survey_info csv
+    surveyInfoVarsToKeep <- grep("^survey_info\\.", vars.to.keep, value = TRUE) %>%
+      sub("^survey_info\\.", "", .) #find the sruvey_info vars to keep
+    
+    if (!all(surveyInfoVarsToKeep %in% surveyInfoDF$New.variable.name)) {
+      stop("Survey_info csv does not contain the survey info variables in vars.to.keep")
+    }
+  }
+  
   
   withCallingHandlers( #Basic error handing 
     # in case RStudio window freezes -- write error output to a file
@@ -126,6 +144,7 @@ getDHSData <- function(dhs.user = username,
                                    qog.file.path = qog.file.path,
                                    countries = countries,
                                    waves = waves,
+                                   project.id = project.id,
                                    ...)
       dt_file_path <- paste0("DHS_harmonised_data", 
                              getSaveTime(), 
