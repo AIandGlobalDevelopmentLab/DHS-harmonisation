@@ -1,9 +1,8 @@
 #Minimal run on Alvis:
 
 source("/cephyr/users/bailie/Alvis/git/DHS-harmonisation/auth.R")
-debugSource(file.path(dirname(rstudioapi::getSourceEditorContext()$path), 
-                      "auth.R"))
-
+# debugSource(file.path(dirname(rstudioapi::getSourceEditorContext()$path), 
+#                       "auth.R"))
 source("set-up.R")
 
 install.packages(c("devtools", "magrittr", "readr", "lubridate"))

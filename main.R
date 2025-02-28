@@ -2,14 +2,14 @@ debugSource(file.path(dirname(rstudioapi::getSourceEditorContext()$path),
                       "auth.R"))
 #debugSource("set-up.R") #-- only run this once
 
-library("devtools")
-library("tidyverse")
+library("devtools") #Needed to install Hans's packages
+library("tidyverse") #Not really needed -- see minimalAlvisRun.R for minimal package requirements
 `%<>%` <- magrittr::`%<>%`
 library("lubridate")
 
-library("boot")
+library("boot") #Only needed for bootstrap
 library("tictoc") #Only needed for testing
-library("stringi")
+library("stringi") #Not sure where this is needed -- perhaps for debugging? I don't think it's needed for download and harmonise
 
 debugSource("helpers.R")
 debugSource("global_vars.R")
