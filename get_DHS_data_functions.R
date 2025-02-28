@@ -123,7 +123,7 @@ getDHSData <- function(dhs.user = username,
     
     #Check that the survey_info vars to keep are included in the survey_info csv
     surveyInfoVarsToKeep <- grep("^survey_info\\.", vars.to.keep, value = TRUE) %>%
-      sub("^survey_info\\.", "", .) #find the sruvey_info vars to keep
+      sub("^survey_info\\.", "", .) #find the survey_info vars to keep
     
     if (!all(surveyInfoVarsToKeep %in% surveyInfoDF$New.variable.name)) {
       stop("Survey_info csv does not contain the survey info variables in vars.to.keep")

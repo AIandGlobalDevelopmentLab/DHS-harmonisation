@@ -1,9 +1,9 @@
 New.variable.name,type,dhs.variable.name,special.recodes.car
-ultimate_area_unit,numeric,HV004,
-psu,numeric,HV021,
-stratum,raw,HV022,
-stratified,raw,HV023,
-region,raw,HV024,
-HH_weight,numeric,HV005,
-urban_rural,numeric,HV025,
-HH_men_weight,numeric,HV028,
+"ultimate_area_unit","numeric","HV004"
+"psu","numeric","HV021"
+"stratum","raw","HV022"
+"stratified","raw","HV023"
+"region","raw","HV024"
+"HH_weight","numeric","HV005"
+"urban_rural","numeric","HV025"
+"HH_men_weight","numeric","HV028"
