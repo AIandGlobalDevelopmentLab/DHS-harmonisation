@@ -21,7 +21,7 @@ from: posit/r-base:4.4.1-jammy
     # Install R packages
     sed -i 's|# options(repos.*$|options(repos = c(CRAN="https://cloud.r-project.org/"))|' /usr/lib/R/library/base/R/Rprofile
 
-    R --slave -e 'library("devtools"); install.packages(c("magrittr", "readr", "lubridate")); install_bitbucket(repo = "hansekbrand/iwi", ref = "99e59a070b914d392faef34bc9e22028b3df03e7", upgrade = "always"); install_bitbucket(repo = "hansekbrand/DHSharmonisation", ref = "733e7c92127369f886608bd168840b9c6373768d", upgrade = "always")'
+    R --slave -e 'library("devtools"); install.packages(c("magrittr", "readr", "lubridate", "purrr")); install_bitbucket(repo = "hansekbrand/iwi", ref = "99e59a070b914d392faef34bc9e22028b3df03e7", upgrade = "always"); install_bitbucket(repo = "hansekbrand/DHSharmonisation", ref = "733e7c92127369f886608bd168840b9c6373768d", upgrade = "always")'
 
     # Make image writable with overlays
     chmod a+rwX -fR /boot /bin /sbin /lib /lib32 /lib64 /usr /etc /var /opt || :

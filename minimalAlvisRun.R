@@ -8,7 +8,7 @@ source("set-up.R")
 
 
 #Installed when making the apptainer:
-# install.packages(c("devtools", "magrittr", "readr", "lubridate"))
+# install.packages(c("devtools", "magrittr", "readr", "lubridate", "purrr"))
 # library("devtools") #Needed to install Hans's packages
 # install_bitbucket(repo = "hansekbrand/iwi", 
 #                   ref = "99e59a070b914d392faef34bc9e22028b3df03e7",
@@ -21,11 +21,12 @@ library("globallivingconditions")
 `%<>%` <- magrittr::`%<>%`
 `%>%` <- magrittr::`%>%`
 write_lines <- readr::write_lines
+list_modify <- purrr::list_modify
 library("lubridate")
 
-debugSource("helpers.R")
-debugSource("global_vars.R")
-debugSource("get_DHS_data_functions.R")
+source("helpers.R")
+source("global_vars.R")
+source("get_DHS_data_functions.R")
 
 l <- getDHSData(dhs.user = username,
                 dhs.password = pass,
