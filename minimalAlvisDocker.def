@@ -9,6 +9,7 @@ from: posit/r-base:4.4.1-jammy
     apt-get update
     apt-get install -y gnupg
 
+    apt-get install -y lua5.3
     apt-get install -y texlive-xetex texlive-science git
 
     apt-get install -y r-cran-devtools r-cran-knitr r-cran-xml r-cran-httr r-cran-data.table r-cran-foreach r-cran-hmisc r-cran-car r-cran-sp  r-cran-rgdal r-cran-future  r-cran-xtable  r-cran-geosphere r-cran-deldir  r-cran-benchmarkme r-cran-reticulate r-cran-magick r-cran-snow  r-cran-rcurl r-cran-knitr r-cran-sp r-cran-rgdal

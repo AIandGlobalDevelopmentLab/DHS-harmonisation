@@ -4,6 +4,8 @@
 #SBATCH -t 0-8:00:00 
 #SBATCH -C NOGPU # <-- this gives alvis-cpu1
 #SBATCH --cpus-per-task=31
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=jameshbailie@gmail.com
 
 cd /mimer/NOBACKUP/groups/globalpoverty1/bailie/rawOutputFromHansPackage28Feb25
 export LC_ALL=C.UTF-8
