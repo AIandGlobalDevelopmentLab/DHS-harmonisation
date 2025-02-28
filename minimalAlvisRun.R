@@ -5,15 +5,17 @@ source("/cephyr/users/bailie/Alvis/git/DHS-harmonisation/auth.R")
 #                       "auth.R"))
 source("set-up.R")
 
-install.packages(c("devtools", "magrittr", "readr", "lubridate"))
 
-library("devtools") #Needed to install Hans's packages
-install_bitbucket(repo = "hansekbrand/iwi", 
-                  ref = "99e59a070b914d392faef34bc9e22028b3df03e7",
-                  upgrade = "never")
-install_bitbucket(repo = "hansekbrand/DHSharmonisation", 
-                  ref = "0af6dc57d8ec5799e6339c5c1c8128018d133952",
-                  upgrade = "never")
+
+#Installed when making the apptainer:
+# install.packages(c("devtools", "magrittr", "readr", "lubridate"))
+# library("devtools") #Needed to install Hans's packages
+# install_bitbucket(repo = "hansekbrand/iwi", 
+#                   ref = "99e59a070b914d392faef34bc9e22028b3df03e7",
+#                   upgrade = "never")
+# install_bitbucket(repo = "hansekbrand/DHSharmonisation", 
+#                   ref = "0af6dc57d8ec5799e6339c5c1c8128018d133952",
+#                   upgrade = "never")
 library("globallivingconditions")
 
 `%<>%` <- magrittr::`%<>%`
