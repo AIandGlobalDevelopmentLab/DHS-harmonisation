@@ -1,12 +1,12 @@
 This code collects and aggregates data from all DHS surveys (that the user has access to via [https://dhsprogram.com/data/](https://dhsprogram.com/data/)). It compiles all DHS surveys into a single dataset at the person-level. We call this dataset the *harmonised dataset*. This dataset contains the international wealth index (IWI) for each DHS household, along with survey design information and some other key DHS variables. This person-level dataset can be aggregated to produce cluster-level IWI estimates, which are used as the training/test labels for our satellite image prediction algorithms. 
 
-This code is basically just a wrapper function for Hans's package [`globallivingconditions`](https://bitbucket.org/hansekbrand/dhsharmonisation/src/master/) which downloads and harmonises data from the DHS. There is also  some draft code for bootstrapping to account for survey uncertainty.
+This code is basically just a wrapper function for Hans's package [`globallivingconditions`](https://bitbucket.org/hansekbrand/dhsharmonisation/src/master/) which downloads and harmonises data from the DHS. There is also some draft code for bootstrapping to account for survey uncertainty.
+
+The data which this package produces is documented in this repo: https://github.com/AIandGlobalDevelopmentLab/DHS-Data
 
 ### TODOs:
 
-- [ ] *Understand the DHS survey design variables* (see [this Github issue](https://github.com/AIandGlobalDevelopmentLab/FrontPage/issues/69))
-- [ ] *Data validation* (see [this Github issue](https://github.com/AIandGlobalDevelopmentLab/FrontPage/issues/70))
-- [ ] Produce a canonical version of the harmonised dataset using this code. Include it in the [list of lab assets](https://github.com/AIandGlobalDevelopmentLab/FrontPage/blob/main/Documentation/LabAssets.md). Advertise this data file to the team (e.g. at the fortnightly lab meeting). (This would ensure everyone in the team is using the same standardised version of the DHS data and the same IWI.)
+See [the repo's issues](https://github.com/AIandGlobalDevelopmentLab/DHS-harmonisation/issues/1).
 
 ### Set up:
 
@@ -34,15 +34,15 @@ And which sets your working directory to the folder `repo_file_path`. (Update: u
 #### Step 2: 
 Run the R script `auth.R`
 
-Run the R script `set-up.R`. (You only need to do this once.) This downloads the QoG dataset and saves it in the appropriate folder.
+Run the R script `set-up.R`. (You only need to do this once -- although it doesn't hurt to run it multiple times.) This downloads the QoG dataset and saves it in the appropriate folder.
 
 #### Step 3
-Follow the instructions in `main.R`.
+Follow the instructions in `main.R`. Alternatively, run `sbatch minimalAlvisRun.sh`. For more details see [this readme](https://portal.c3se.chalmers.se/pun/sys/dashboard/files/fs//mimer/NOBACKUP/groups/globalpoverty1/bailie/rawOutputFromHansPackage28Feb25/README.md).
 
 
 ### Notes:
+- Because of how the paralellisation is implemented, I think it is much faster to run this code in a non-interactive mode of R (i.e. off terminal, not in R Studio) and on a unix-like system (including OSX).
 
 #### Dataset variables:
-
 - `country.code.ISO.3166.alpha.3` is the country code given by [this standard]{https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). (This is different to the country codes used by the DHS.)
 
