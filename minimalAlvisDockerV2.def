@@ -2,20 +2,22 @@ bootstrap: docker
 from: posit/r-base:4.4.1-jammy
 
 %help
-    Simple container with R base and minimal packages for running minimalAlvisRun.sh
+    Simple container with R base and minimal packages for running minimalAlvisRun.sh. It's not very minimal, because I couldn't work out a minimal version (see minimalAlvisDocker.def), so instead this is mostly just a copy of Hans's recipe /mimer/NOBACKUP/groups/globalpoverty1/hans/hans_misc.def. UPDATE: Actually this is pretty minimal -- CUDA may be necessary to get parallel processing working (and that might solve the Lmod problem!)
 
 %post
     export DEBIAN_FRONTEND="noninteractive"
     apt-get update
     apt-get install -y gnupg
+    
+    wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-ubuntu2204.pin
+    mv cuda-ubuntu2204.pin /etc/apt/preferences.d/cuda-repository-pin-600
+    wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb
+    dpkg -i cuda-keyring_1.1-1_all.deb
+    apt-get update
 
-    apt-get -y build-dep lmod
-    lua_ver=$(which lua | xargs realpath -e | xargs basename)
-    apt-get -y install lib${lua_ver}-dev tcl-dev
-    apt-get install -y lua5.4 liblua5.4-dev lua-posix lmod #replaced with the three lines above
     apt-get install -y texlive-xetex texlive-science git
 
-    apt-get install -y r-cran-devtools r-cran-knitr r-cran-xml r-cran-httr r-cran-data.table r-cran-foreach r-cran-hmisc r-cran-car r-cran-sp  r-cran-rgdal r-cran-future  r-cran-xtable  r-cran-geosphere r-cran-deldir  r-cran-benchmarkme r-cran-reticulate r-cran-magick r-cran-snow  r-cran-rcurl r-cran-knitr r-cran-sp r-cran-rgdal
+    apt-get install -y r-cran-devtools r-cran-knitr r-cran-xml r-cran-httr r-cran-data.table r-cran-foreach r-cran-car r-cran-sp  r-cran-future  r-cran-xtable  r-cran-geosphere r-cran-benchmarkme r-cran-snow  r-cran-rcurl r-cran-knitr r-cran-sp
 
     apt-get install -y libpng-dev libjpeg-dev libcurl4-gnutls-dev libssl-dev libxml2-dev libgdal-dev libudunits2-dev libproj-dev cmake libfontconfig1-dev libharfbuzz-dev libfribidi-dev libtiff-dev libfreetype-dev libgeos-dev libmagick++-dev libcharls2 libsecret-1-dev
 
@@ -29,6 +31,3 @@ from: posit/r-base:4.4.1-jammy
 
     # Make image writable with overlays
     chmod a+rwX -fR /boot /bin /sbin /lib /lib32 /lib64 /usr /etc /var /opt || :
-
-
-
