@@ -2,7 +2,7 @@ bootstrap: docker
 from: posit/r-base:4.4.1-jammy
 
 %help
-    Simple container with R base and minimal packages for running minimalAlvisRun.sh. There is a problem with this recipe because it doesn't load Lmod, which then results in an error somewhere in Hans's globallivingconditions package.
+    Simple container with R base and minimal packages for running minimalAlvisRun.sh
 
 %post
     export DEBIAN_FRONTEND="noninteractive"
