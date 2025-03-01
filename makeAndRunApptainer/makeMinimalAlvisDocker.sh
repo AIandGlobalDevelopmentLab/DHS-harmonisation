@@ -7,6 +7,6 @@
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=jameshbailie@gmail.com
 
-cd /cephyr/users/bailie/Alvis/git/DHS-harmonisation/makeApptainer
+cd /cephyr/users/bailie/Alvis/git/DHS-harmonisation/makeAndRunApptainer
 export LC_ALL=C.UTF-8
 apptainer build --fakeroot --force /mimer/NOBACKUP/groups/globalpoverty1/bailie/images/minimalAlvisDocker.sif minimalAlvisDocker.def
