@@ -1,5 +1,5 @@
 bootstrap: docker
-from: posit/r-base:4.4.1-jammy
+from: posit/r-base:4.4.1-noble
 
 %help
     Simple container with R base and minimal packages for running minimalAlvisRun.sh. There is a problem with this recipe because it doesn't load Lmod (or maybe it loads Lmod but not Lmod's dependencies, so Lmod doesn't work properly), which then results in an error somewhere in Hans's globallivingconditions package.
@@ -11,9 +11,9 @@ from: posit/r-base:4.4.1-jammy
 
     apt-get install -y texlive-xetex texlive-science git
 
-    apt-get install -y r-cran-devtools r-cran-knitr r-cran-xml r-cran-httr r-cran-data.table r-cran-foreach r-cran-hmisc r-cran-car r-cran-sp r-cran-rgdal r-cran-future  r-cran-xtable  r-cran-geosphere r-cran-deldir  r-cran-benchmarkme r-cran-reticulate r-cran-magick r-cran-snow  r-cran-rcurl r-cran-knitr r-cran-sp r-cran-rgdal
+    apt-get install -y r-cran-devtools r-cran-knitr r-cran-xml r-cran-httr r-cran-data.table r-cran-foreach r-cran-hmisc r-cran-car r-cran-sp r-cran-future  r-cran-xtable  r-cran-geosphere r-cran-deldir  r-cran-benchmarkme r-cran-snow  r-cran-rcurl r-cran-knitr r-cran-sp 
 
-    apt-get install -y libpng-dev libjpeg-dev libcurl4-gnutls-dev libssl-dev libxml2-dev libgdal-dev libudunits2-dev libproj-dev cmake libfontconfig1-dev libharfbuzz-dev libfribidi-dev libtiff-dev libfreetype-dev libgeos-dev libmagick++-dev libcharls2 libsecret-1-dev
+    apt-get install -y libpng-dev libjpeg-dev libcurl4-gnutls-dev libssl-dev libxml2-dev libudunits2-dev libproj-dev cmake libfontconfig1-dev libharfbuzz-dev libfribidi-dev libtiff-dev libfreetype-dev libcharls2 libsecret-1-dev
 
     ## knitr support for formating python code
     apt-get install -y highlight
@@ -25,18 +25,18 @@ from: posit/r-base:4.4.1-jammy
     #apt-get -y install lib${lua_ver}-dev tcl-dev
     #apt-get install -y lua5.4 liblua5.4-dev lua-posix lua-posix-dev tcl tcl-dev libtcl lua-bit32 liblua5.4-0 tcl8.6 tcl8.6-dev libtcl8.6
 
-    apt-get install -y lua5.3 lua-bit32:amd64 lua-posix:amd64 lua-posix-dev liblua5.3-0:amd64 liblua5.3-dev:amd64 tcl tcl-dev tcl8.6 tcl8.6-dev:amd64 libtcl8.6:amd64
+    #apt-get install -y lua5.3 lua-bit32:amd64 lua-posix:amd64 lua-posix-dev liblua5.3-0:amd64 liblua5.3-dev:amd64 tcl tcl-dev tcl8.6 tcl8.6-dev:amd64 libtcl8.6:amd64
 
     ## Make lua 5.3 the default using update-alternatives and fix a lua posix symlink
     ## See https://lmod.readthedocs.io/en/latest/030_installing.html#:~:text=For%20Ubuntu%2018.04%2C%20you%20will%20need%20to%20make%20lua%205.3
-    update-alternatives --install /usr/bin/lua \
-    	lua-interpreter /usr/bin/lua5.3 130 \
-        --slave /usr/share/man/man1/lua.1.gz lua-manual \
-        /usr/share/man/man1/lua5.3.1.gz
-    update-alternatives --install /usr/bin/luac \
-        lua-compiler /usr/bin/luac5.3 130 \
-        --slave /usr/share/man/man1/luac.1.gz lua-compiler-manual \
-        /usr/share/man/man1/luac5.3.1.gz
+    #update-alternatives --install /usr/bin/lua \
+    # 	 lua-interpreter /usr/bin/lua5.3 130 \
+    #    --slave /usr/share/man/man1/lua.1.gz lua-manual \
+    #    /usr/share/man/man1/lua5.3.1.gz
+    #update-alternatives --install /usr/bin/luac \
+    #    lua-compiler /usr/bin/luac5.3 130 \
+    #    --slave /usr/share/man/man1/luac.1.gz lua-compiler-manual \
+    #    /usr/share/man/man1/luac5.3.1.gz
     #ln -sf /usr/lib/x86_64-linux-gnu/liblua5.3-posix.so \
     #    /usr/lib/x86_64-linux-gnu/lua/5.3/posix.so
 
