@@ -1,3 +1,6 @@
+# February 2025
+#Running download.and.harmonise to debug it with Hans 
+# See issue: https://github.com/AIandGlobalDevelopmentLab/FrontPage/issues/125
 
 setwd("~/Desktop")
 library(devtools)

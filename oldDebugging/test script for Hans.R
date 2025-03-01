@@ -1,3 +1,7 @@
+#Trying to debug download.and.harmonise with Hans
+# July 2023
+# (outdated)
+
 vars_to_keep <- c("m49.region", "country.code.ISO.3166.alpha.3",
                   "version", "RegionID", "district", "ClusterID", "HouseholdID",
                   "year.of.interview", "month.of.interview", "age", "sex",

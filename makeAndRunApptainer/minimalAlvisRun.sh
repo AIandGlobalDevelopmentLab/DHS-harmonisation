@@ -7,10 +7,6 @@
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=jameshbailie@gmail.com
 
-rm -r /usr/share/lmod/
-
 cd /mimer/NOBACKUP/groups/globalpoverty1/bailie/rawOutputFromHansPackage28Feb25
 export LC_ALL=C.UTF-8
-
-apptainer exec /mimer/NOBACKUP/groups/globalpoverty1/bailie/images/minimalDHSHarmonisationApptainer.sif R --version
-#apptainer exec /mimer/NOBACKUP/groups/globalpoverty1/bailie/images/minimalDHSHarmonisationApptainer.sif Rscript /cephyr/users/bailie/Alvis/git/DHS-harmonisation/minimalAlvisRun.R
+apptainer exec /mimer/NOBACKUP/groups/globalpoverty1/bailie/images/minimalAlvisDocker.sif Rscript /cephyr/users/bailie/Alvis/git/DHS-harmonisation/makeAndRunApptainer/minimalAlvisRun.R
