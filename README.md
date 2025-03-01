@@ -37,11 +37,15 @@ Run the R script `auth.R`
 Run the R script `set-up.R`. (You only need to do this once -- although it doesn't hurt to run it multiple times.) This downloads the QoG dataset and saves it in the appropriate folder.
 
 #### Step 3
-Follow the instructions in `main.R`. Alternatively, run `sbatch minimalAlvisRun.sh`. For more details see [this readme](https://portal.c3se.chalmers.se/pun/sys/dashboard/files/fs//mimer/NOBACKUP/groups/globalpoverty1/bailie/rawOutputFromHansPackage28Feb25/README.md).
-
+Follow the instructions in `main.R`. Alternatively -- for a completely automated solution, on an Alvis apptainer -- run `sbatch makeAndRunApptainer/minimalAlvisRun.sh`. For more details see [this readme](https://portal.c3se.chalmers.se/pun/sys/dashboard/files/fs//mimer/NOBACKUP/groups/globalpoverty1/bailie/rawOutputFromHansPackage28Feb25/README.md).
 
 ### Notes:
 - Because of how the paralellisation is implemented, I think it is much faster to run this code in a non-interactive mode of R (i.e. off terminal, not in R Studio) and on a unix-like system (including OSX).
+- You will need >16Gb of RAM (Hans estimates 40Gb) to run this code. (Assuming you are using the default settings -- `countries = NULL` and `waves = NULL` -- so that you are downloading all the DHS data.)
+- Some files are largely irrelevant:
+	- There are some debugging/validation files (`debugging.R`, `debugging_helpers.R` and `finding bugs for Hans.R`) which are very rough code, and were trying to debug Hans's globallivingconditions package, and validate the data outputted by this package.
+	- The bootstrap files (`modified_boot_function.R`, `bootstrap_helpers.R` , `bootstrap_functions.R` and `bootstrap.R`) are draft code for implementing the idea of bootstrapping over clusters to account for uncertainty due to the DHS survey procedure.
+	- `Pragya data.R` contains some code to answer a question Pragya had when we were discussing collaborating with her (in 2023-ish, from memory?)
 
 #### Dataset variables:
 - `country.code.ISO.3166.alpha.3` is the country code given by [this standard]{https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). (This is different to the country codes used by the DHS.)
