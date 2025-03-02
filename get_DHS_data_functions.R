@@ -105,9 +105,33 @@ getDHSData <- function(dhs.user = username,
   if (updateSurveyInfoVars) {
     #Push survey_info_vars.csv into the correct folder so that it is findable
     #by the globallivingconditions package:
-    file.copy(from = survey_info_vars_file_path, 
-              to = surveyInfoPackagePath,
-              overwrite = T)
+    
+    if (!file.exists(survey_info_vars_file_path)) {
+      stop("Cannot update survey_info csv since the path to the updated version does not point to a file.")
+    }
+    
+    #First check if the two files are the same:
+    if (file.exists(surveyInfoPackagePath)) {
+      old <- read.csv(surveyInfoPackagePath)
+      new <- read.csv(survey_info_vars_file_path)
+      oldEqualNew <- suppressWarnings(isTRUE(
+        dplyr::all_equal(old, new,
+                         ignore_row_order = TRUE,
+                         ignore_col_order = FALSE)
+      ))
+    } else {
+      oldEqualNew <- FALSE
+    }
+    
+    if (!oldEqualNew) {
+      if (file.access(surveyInfoPackagePath, mode = 2) == -1) {
+        stop("Attempting to update survey_info csv but I do not have write permissions to do so.")  
+      } else {
+        file.copy(from = survey_info_vars_file_path, 
+                  to = surveyInfoPackagePath,
+                  overwrite = T)
+      }
+    }
   } else if(!file.exists(surveyInfoPackagePath) & 
              "survey_info" %in% variable.packages) {
     stop("Survey_info csv not stored in globallivingconditions package.")
