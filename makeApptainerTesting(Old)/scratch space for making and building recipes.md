@@ -9,7 +9,7 @@ apptainer build --fakeroot /mimer/NOBACKUP/groups/globalpoverty1/bailie/images/m
 
 
 
-
+apptainer shell --fakeroot --writable-tmpfs /mimer/NOBACKUP/groups/globalpoverty1/bailie/images/minimalAlvisDocker.sif
 
 COMMANDS TO PUT IN RECIPES:
 
