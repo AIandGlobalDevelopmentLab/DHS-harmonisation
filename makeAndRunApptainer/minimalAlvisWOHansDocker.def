@@ -22,9 +22,9 @@ from: posit/r-base:4.4.1-noble
 
 	## Install necessary R packages:
 	R --slave -e 'install.packages(c("devtools", "magrittr", "readr", "lubridate", "purrr"))'
-	R --slave -e 'library("devtools"); install_bitbucket(repo = "hansekbrand/iwi", ref = "99e59a070b914d392faef34bc9e22028b3df03e7", upgrade = "always"); install_bitbucket(repo = "hansekbrand/DHSharmonisation", ref = "733e7c92127369f886608bd168840b9c6373768d", upgrade = "always")'
-	
+
 	## Make image writable with overlays
 	#    I'm not sure if this is necessary or even what it does.
     chmod a+rwX -fR /boot /bin /sbin /lib /lib32 /lib64 /usr /etc /var /opt || :
+	
 
