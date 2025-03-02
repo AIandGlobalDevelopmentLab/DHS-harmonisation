@@ -1,0 +1,29 @@
+\documentclass[10pt,english]{article}
+\begin{document}
+
+% This chunk is needed to make sure evaluation is taking place in the current directory. The other settings are nice but not as important.
+<<setup.outer, echo=FALSE, tidy=FALSE, message=FALSE>>=
+library(knitr)
+opts_chunk$set(results='hide', cache=TRUE, echo=TRUE, warning=TRUE, fig.width=4, fig.height=4, fig.pos = 'htb', tidy.opts=list(blank=FALSE, width.cutoff=50), background='white', tidy=TRUE, error=TRUE, message=FALSE, dev="png", dpi = 200, autodep = TRUE)
+opts_knit$set(root.dir = ".")
+options(scipen=999)
+@
+
+
+<<load.data>>=
+library(devtools)
+
+
+vars.to.keep <- c("m49.region", "country.code.ISO.3166.alpha.3", "version", "RegionID", 
+"district", "ClusterID", "HouseholdID", "year.of.interview", 
+"month.of.interview", "age", "sex", "sample.weight", "lon", "lat", 
+"iwi", "survey_info.ultimate_area_unit", "survey_info.psu", "survey_info.stratum", 
+"survey_info.stratified", "survey_info.region", "survey_info.HH_weight", 
+"survey_info.urban_rural", "survey_info.HH_men_weight")
+
+save(my.dt, file = "livingconditions.RData")
+rm(my.dt)
+
+@ 
+
+\end{document}
