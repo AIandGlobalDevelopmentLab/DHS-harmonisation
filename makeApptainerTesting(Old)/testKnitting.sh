@@ -7,5 +7,5 @@
 
 cd "/cephyr/users/bailie/Alvis/git/DHS-harmonisation/makeApptainerTesting(Old)"
 export LC_ALL=C.UTF-8
-apptainer exec /mimer/NOBACKUP/groups/globalpoverty1/bailie/images/minimalAlvisDocker.sif Rscript -e "library(knitr); knit('/cephyr/users/bailie/Alvis/git/DHS-harmonisation/makeApptainerTesting(Old)/test.Rnw')"
+apptainer exec /mimer/NOBACKUP/groups/globalpoverty1/bailie/images/minimalAlvisDocker.sif Rscript -e "library(knitr); knit('/cephyr/users/bailie/Alvis/git/DHS-harmonisation/makeApptainerTesting(Old)/testKnittign.Rnw')"
 #apptainer shell --fakeroot --writable-tmpfs /mimer/NOBACKUP/groups/globalpoverty1/bailie/images/minimalAlvisDocker.sif
