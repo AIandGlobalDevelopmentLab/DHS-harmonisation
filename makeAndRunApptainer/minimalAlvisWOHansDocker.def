@@ -21,7 +21,7 @@ from: posit/r-base:4.4.1-noble
 	sed -i 's|# options(repos.*$|options(repos = c(CRAN="https://cloud.r-project.org/"))|' /usr/lib/R/library/base/R/Rprofile
 
 	## Install necessary R packages:
-	R --slave -e 'install.packages(c("devtools", "magrittr", "readr", "lubridate", "purrr"))'
+	R --slave -e 'install.packages(c("devtools", "magrittr", "readr", "lubridate", "purrr", "dplyr"))'
 	R --slave -e 'install.packages(c("iterators", "foreach", "dplyr", "wk", "proxy", "e1071", "colorspace", "viridisLite", "RColorBrewer", "munsell", "labeling", "farver", "rbibutils", "Rdpack", "RcppEigen", "reformulas", "nloptr", "minqa", "MatrixModels", "SparseM", "isoband", "scales", "gtable", "microbenchmark", "modelr", "ggplot2", "Deriv", "cowplot", "tidyr", "backports", "doBy", "numDeriv", "broom", "lme4", "parallelly", "listenv", "globals", "future", "bitops", "httr", "doParallel", "benchmarkmeData", "data.table", "sp", "units", "s2", "DBI", "classInt", "quantreg", "pbkrtest", "Formula", "abind", "carData", "future.apply", "RCurl", "snow", "ncdf4", "benchmarkme", "memisc", "SearchTrees", "geosphere", "sf", "gridExtra", "car", "doFuture", "XML", "formatR"))
 
 	## Make image writable with overlays

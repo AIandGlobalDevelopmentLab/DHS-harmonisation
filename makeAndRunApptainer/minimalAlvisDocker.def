@@ -21,7 +21,7 @@ from: posit/r-base:4.4.1-noble
 	sed -i 's|# options(repos.*$|options(repos = c(CRAN="https://cloud.r-project.org/"))|' /usr/lib/R/library/base/R/Rprofile
 
 	## Install necessary R packages:
-	R --slave -e 'install.packages(c("devtools", "magrittr", "readr", "lubridate", "purrr"))'
+	R --slave -e 'install.packages(c("devtools", "magrittr", "readr", "lubridate", "purrr", "dplyr"))'
 	R --slave -e 'library("devtools"); install_bitbucket(repo = "hansekbrand/iwi", ref = "99e59a070b914d392faef34bc9e22028b3df03e7", upgrade = "always"); install_bitbucket(repo = "hansekbrand/DHSharmonisation", ref = "733e7c92127369f886608bd168840b9c6373768d", upgrade = "always"); install.packages("formatR")'
 	
 	## Make image writable with overlays
